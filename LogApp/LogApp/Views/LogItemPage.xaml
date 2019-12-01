@@ -3,43 +3,97 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:LogApp"
              mc:Ignorable="d"
              x:Class="LogApp.LogItemPage"
                 Title="{Binding Name}">
-    <StackLayout Margin="20" VerticalOptions="StartAndExpand">
-        <Label Text="Log Name" />
-        <Entry Text="{Binding Name}" />
-        <Label Text="Log Notes" />
-        <Entry Text="{Binding Notes}" />
-        <Label Text="Log Date" />
-        <DatePicker
-            Format="MM-dd-yyyy"
-            x:Name="Date"
-            MinimumDate="{Binding MinDate}"
-            MaximumDate="{Binding MaxDate}"
-            Date="{Binding LogDate}" />
-        <Label Text="Odometer Reading" />
-        <Entry x:Name="Miles"
-                Text="{Binding OdometerMileage}"
-                Keyboard="Numeric"/>
-        <Label Text="Price Paid Per Gallon" />
-        <Entry  x:Name="PricePerGallon"
-                Text="{Binding PricePerGallon}"
-                Keyboard="Numeric"/>
-        <Label Text="Gallons Bought" />
-        <Entry  x:Name="GallonsBought"
-                Text="{Binding GallonsBought}"
-                Keyboard="Numeric"/>
-        <Entry Placeholder="Number to SMS" 
-               PlaceholderColor="Black" 
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="buttonStyle" TargetType="Button">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="WidthRequest" Value="200" />
+                <Setter Property="TextColor" Value="{x:Static local:Constants.ButtonFont}" />
+            </Style>
+            <Style x:Key="labelStyle" TargetType="Label">
+                <Setter Property="Font" Value="{x:Static local:Constants.Font}" />
+                <Setter Property="TextColor" Value="{x:Static local:Constants.FontColor}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView BackgroundColor="{x:Static local:Constants.Background}">
+        <StackLayout Margin="20" VerticalOptions="StartAndExpand">
+            <Label  Text="Log Name"
+                    Style="{StaticResource labelStyle}"/>
+            <Entry  Text="{Binding Name}"
+                    TextColor="{x:Static local:Constants.FontColor}"/>
+
+            <Label  Text="Log Notes" 
+                    Style="{StaticResource labelStyle}"/>
+            <Entry  Text="{Binding Notes}" 
+                    TextColor="{x:Static local:Constants.FontColor}"/>
+
+            <Label  Text="Log Date" 
+                    Style="{StaticResource labelStyle}"/>
+            <DatePicker
+                Format="MM-dd-yyyy"
+                x:Name="Date"
+                MinimumDate="{Binding MinDate}"
+                MaximumDate="{Binding MaxDate}"
+                Date="{Binding LogDate}" 
+                TextColor="{x:Static local:Constants.FontColor}"/>
+
+            <Label  Text="Odometer Reading" 
+                    Style="{StaticResource labelStyle}"/>
+            <Entry  x:Name="Miles"
+                    Text="{Binding OdometerMileage}"
+                    Keyboard="Numeric"
+                    TextColor="{x:Static local:Constants.FontColor}"/>
+
+            <Label  Text="Price Paid Per Gallon" 
+                   Style="{StaticResource labelStyle}"/>
+            <Entry  x:Name="PricePerGallon"
+                    Text="{Binding PricePerGallon}"
+                    Keyboard="Numeric"
+                    TextColor="{x:Static local:Constants.FontColor}"/>
+
+            <Label  Text="Gallons Bought" 
+                    Style="{StaticResource labelStyle}"/>
+            <Entry  x:Name="GallonsBought"
+                    Text="{Binding GallonsBought}"
+                    Keyboard="Numeric"
+                    TextColor="{x:Static local:Constants.FontColor}"/>
+            
+            <Entry Placeholder="Number to SMS" 
                x:Name="txtNumber" 
                Keyboard="Numeric"/>
-        <Entry Placeholder="SMS Message" 
-               PlaceholderColor="Black"
-               x:Name="txtMessage"/>
-        <Button x:Name="btnSms" Text="Send SMS" Clicked="btnSendSms_Clicked"/>
-        <Button Text="Save" Clicked="OnSaveClicked" />
-        <Button Text="Delete" Clicked="OnDeleteClicked" />
-        <Button Text="Cancel" Clicked="OnCancelClicked" />
-    </StackLayout>
+            
+            <Entry  Placeholder="SMS Message" 
+                    x:Name="txtMessage"
+                    TextColor="{x:Static local:Constants.FontColor}"/>
+            
+            <Button x:Name="btnSms"
+                    Text="Send SMS"
+                    Clicked="btnSendSms_Clicked"
+                    BackgroundColor="{x:Static local:Constants.ConfirmButton}"
+                    Style="{StaticResource buttonStyle}"/>
+            
+            <Button Text="Save" 
+                    BackgroundColor="{x:Static local:Constants.ConfirmButton}"
+                    Clicked="OnSaveClicked"
+                    Style="{StaticResource buttonStyle}"/>
+            
+            <Button Text="Delete" 
+                    BackgroundColor="{x:Static local:Constants.DeleteButton}"
+                    Clicked="OnDeleteClicked"
+                    Style="{StaticResource buttonStyle}"/>
+            
+            <Button Text="Cancel" 
+                    BackgroundColor="{x:Static local:Constants.WarnButton}"
+                    Clicked="OnCancelClicked" 
+                    Style="{StaticResource buttonStyle}"/>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>
