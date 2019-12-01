@@ -14,7 +14,7 @@
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="CenterAndExpand" />
                 <Setter Property="WidthRequest" Value="200" />
-                <Setter Property="TextColor" Value="{x:Static local:Constants.ButtonFont}" />
+                <Setter Property="TextColor" Value="{x:Static local:Constants.FontColor}" />
             </Style>
             <Style x:Key="labelStyle" TargetType="Label">
                 <Setter Property="Font" Value="{x:Static local:Constants.Font}" />

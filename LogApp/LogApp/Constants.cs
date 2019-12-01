@@ -8,10 +8,10 @@ namespace LogApp
     class Constants
     {
         public static readonly Font Font;
+
         public static readonly Color Background = Color.FromHex("7CDEDC");
 
-        public static readonly Color ButtonColor = Color.FromHex("010202");
-        public static readonly Color FontColor = Color.FromHex("6C756B");
+        public static readonly Color FontColor = Color.FromHex("010202");
 
         public static readonly Color ConfirmButton = Color.FromHex("368723");
         public static readonly Color WarnButton = Color.FromHex("D9CC3B");
