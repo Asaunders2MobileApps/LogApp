@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="LogApp.LogItemPage"
+                Title="{Binding Name}">
+    <StackLayout Margin="20" VerticalOptions="StartAndExpand">
+        <Label Text="Log Name" />
+        <Entry Text="{Binding Name}" />
+        <Label Text="Log Notes" />
+        <Entry Text="{Binding Notes}" />
+        <Label Text="Log Date" />
+        <DatePicker
+            MinimumDate="{Binding MinDate}"
+            MaximumDate="{Binding MaxDate}"
+            Date="{Binding LogDate}" />
+        <Label Text="Odometer Reading" />
+        <Entry Text="{Binding OdometerMileage}"
+               Keyboard="Numeric"/>
+        <Label Text="Price Paid Per Gallon" />
+        <Entry Text="{Binding PricePerGallon}"
+               Keyboard="Numeric"/>
+        <Button Text="Save" Clicked="OnSaveClicked" />
+        <Button Text="Delete" Clicked="OnDeleteClicked" />
+        <Button Text="Cancel" Clicked="OnCancelClicked" />
+        <!--<Button Text="Speak" Clicked="OnSpeakClicked" />-->
+    </StackLayout>
+</ContentPage>
