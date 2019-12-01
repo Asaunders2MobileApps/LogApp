@@ -16,6 +16,7 @@ namespace LogApp
         public DateTime LogDate { get; set; }
         public double OdometerMileage { get; set; }
         public double PricePerGallon { get; set; }
+        public double GallonsBought { get; set; }
         #endregion
 
         #region MinDate (DateTime)

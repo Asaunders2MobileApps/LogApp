@@ -13,18 +13,33 @@
         <Entry Text="{Binding Notes}" />
         <Label Text="Log Date" />
         <DatePicker
+            Format="MM-dd-yyyy"
+            x:Name="Date"
             MinimumDate="{Binding MinDate}"
             MaximumDate="{Binding MaxDate}"
             Date="{Binding LogDate}" />
         <Label Text="Odometer Reading" />
-        <Entry Text="{Binding OdometerMileage}"
-               Keyboard="Numeric"/>
+        <Entry x:Name="Miles"
+                Text="{Binding OdometerMileage}"
+                Keyboard="Numeric"/>
         <Label Text="Price Paid Per Gallon" />
-        <Entry Text="{Binding PricePerGallon}"
+        <Entry  x:Name="PricePerGallon"
+                Text="{Binding PricePerGallon}"
+                Keyboard="Numeric"/>
+        <Label Text="Gallons Bought" />
+        <Entry  x:Name="GallonsBought"
+                Text="{Binding GallonsBought}"
+                Keyboard="Numeric"/>
+        <Entry Placeholder="Number to SMS" 
+               PlaceholderColor="Black" 
+               x:Name="txtNumber" 
                Keyboard="Numeric"/>
+        <Entry Placeholder="SMS Message" 
+               PlaceholderColor="Black"
+               x:Name="txtMessage"/>
+        <Button x:Name="btnSms" Text="Send SMS" Clicked="btnSendSms_Clicked"/>
         <Button Text="Save" Clicked="OnSaveClicked" />
         <Button Text="Delete" Clicked="OnDeleteClicked" />
         <Button Text="Cancel" Clicked="OnCancelClicked" />
-        <!--<Button Text="Speak" Clicked="OnSpeakClicked" />-->
     </StackLayout>
 </ContentPage>
